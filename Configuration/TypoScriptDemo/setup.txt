@@ -1,0 +1,192 @@
+
+plugin.Tx_Formhandler.settings.predef {
+
+	tx_formhandlerextbase_demo_finisher {
+
+		# GENERAL CONFIGURATION
+		name = Formhander Extbase - Demo - Finisher
+		addErrorAnchors = 0
+		formValuesPrefix = tx_formhandlerextbase_simpleform
+		fillValueMarkersBeforeLangMarkers = 1
+
+		templateFile = EXT:formhandler_extbase/Resources/Private/Forms/Demo/SimpleForm.html
+		langFile.1 = EXT:formhandler_extbase/Resources/Private/Language/SimpleForm.xml
+
+		additionalIncludePaths {
+			1 = EXT:formhandler_extbase/Classes/Finisher
+			2 = EXT:formhandler_extbase/Classes/PreProcessor
+			3 = EXT:formhandler_extbase/Classes/Controller
+		}
+
+		# ERRORS LAYOUT
+		singleErrorTemplate {
+			totalWrap = <strong class="message">|</strong>
+			singleWrap = |<br />
+		}
+
+		errorListTemplate {
+			totalWrap = <ul>|</ul>
+			singleWrap = <li class="error">|</li>
+		}
+
+		isErrorMarker {
+			default = error
+			global (
+				<div class="error">
+					<strong>Fehler</strong><br />
+					Es wurden nicht alle erforderlichen Felder ausgefüllt oder
+					eine Ihrer Eingaben war fehlerhaft.<br />
+					Bitte prüfen Sie Ihre Angaben.
+				</div><br />
+			)
+		}
+
+		validators {
+			1.class = Tx_Formhandler_Validator_Default
+			1.config.fieldConf {
+				testinput.errorCheck.1 = required
+			}
+
+			2.class = Tx_FormhandlerExtbase_Validator_Extbase
+			2.config {
+				field = testinput
+				validator = NumberRange
+				validatorOptions {
+					minimum = 10
+					maximum = 20
+				}
+			}
+		}
+	}
+
+	tx_formhandlerextbase_demo_finisher_return < plugin.Tx_Formhandler.settings.predef.tx_formhandlerextbase_demo_finisher
+	tx_formhandlerextbase_demo_preprocessor_return < plugin.Tx_Formhandler.settings.predef.tx_formhandlerextbase_demo_finisher
+	tx_formhandlerextbase_demo_interceptorinit_return < plugin.Tx_Formhandler.settings.predef.tx_formhandlerextbase_demo_finisher
+	tx_formhandlerextbase_demo_interceptorsave_return < plugin.Tx_Formhandler.settings.predef.tx_formhandlerextbase_demo_finisher
+
+	tx_formhandlerextbase_demo_finisher {
+
+		preProcessors {
+
+			1 {
+				class = Tx_FormhandlerExtbase_PreProcessor_Extbase
+				config {
+					extensionName = FormhandlerExtbase
+					pluginName = DemoPreProcessor
+				}
+			}
+
+		}
+
+		initInterceptors {
+
+			1 {
+				class = Tx_FormhandlerExtbase_Interceptor_Extbase
+				config {
+					extensionName = FormhandlerExtbase
+					pluginName = DemoInterceptorInit
+				}
+			}
+
+		}
+
+		saveInterceptors {
+
+			1 {
+				class = Tx_FormhandlerExtbase_Interceptor_Extbase
+				config {
+					extensionName = FormhandlerExtbase
+					pluginName = DemoInterceptorSave
+				}
+			}
+
+		}
+
+		finishers {
+
+			1 {
+				class = Tx_FormhandlerExtbase_Finisher_Extbase
+				config {
+					extensionName = FormhandlerExtbase
+					pluginName = DemoFinisher
+				}
+			}
+
+			2 {
+				class = Tx_Formhandler_Finisher_SubmittedOK
+				config.returns = 1
+			}
+		}
+	}
+
+
+	tx_formhandlerextbase_demo_finisher_return {
+
+		name = Formhander Extbase - Demo - Finisher (returning)
+
+		finishers {
+
+			1 {
+				class = Tx_FormhandlerExtbase_Finisher_Extbase
+				config {
+					extensionName = FormhandlerExtbase
+					pluginName = DemoFinisherReturn
+					returns = 1
+				}
+			}
+		}
+	}
+
+
+	tx_formhandlerextbase_demo_preprocessor_return {
+
+		name = Formhander Extbase - Demo - PreProcessor (returning)
+
+		preProcessors {
+
+			1 {
+				class = Tx_FormhandlerExtbase_PreProcessor_Extbase
+				config {
+					extensionName = FormhandlerExtbase
+					pluginName = DemoPreProcessorReturn
+					returns = 1
+				}
+			}
+		}
+	}
+
+	tx_formhandlerextbase_demo_interceptorinit_return {
+
+		name = Formhander Extbase - Demo - Init interceptor (returning)
+
+		initInterceptors {
+
+			1 {
+				class = Tx_FormhandlerExtbase_Interceptor_Extbase
+				config {
+					extensionName = FormhandlerExtbase
+					pluginName = DemoInterceptorInitReturn
+					returns = 1
+				}
+			}
+		}
+	}
+
+	tx_formhandlerextbase_demo_interceptorsave_return {
+
+		name = Formhander Extbase - Demo - Save interceptor (returning)
+
+		saveInterceptors {
+
+			1 {
+				class = Tx_FormhandlerExtbase_Interceptor_Extbase
+				config {
+					extensionName = FormhandlerExtbase
+					pluginName = DemoInterceptorSaveReturn
+					returns = 1
+				}
+			}
+		}
+	}
+
+}

@@ -1,0 +1,40 @@
+<!-- This form only has an input field an a submit button -->
+
+<!-- ###TEMPLATE_FORM1### begin -->
+
+<div id="tx_formhandler_contact_form">
+
+	<form id="tx_formhandlerextbase_simpleform" method="post" action="###REL_URL###" enctype="multipart/form-data" class="yform">
+
+		###is_error###
+
+		<fieldset class="csc-mailform">
+
+			<legend>Testform</legend>
+
+			<p>###value_set_by_demo_preprocessor###</p>
+
+			<p>###value_set_by_demo_interceptor_init###</p>
+
+			<p>###value_set_by_demo_interceptor_save###</p>
+
+			<div class="csc-mailform-field type-text ###is_error_testinput###">
+				###error_testinput###
+				<label for="tx_formhandlerextbase_simpleform_testinput">Testinput ###required_testinput###</label>
+				<input type="text" name="tx_formhandlerextbase_simpleform[testinput]" id="tx_formhandlerextbase_simpleform_testinput" value="###value_testinput###"/>
+			</div>
+
+			<div class="csc-mailform-field type-button">
+				<input type="submit" value="Absenden" ###submit_nextStep###/>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+<!-- ###TEMPLATE_FORM1### end -->
+
+<!-- ###TEMPLATE_SUBMITTEDOK### begin -->
+<p>This is a non-returning extbase finisher test:</p>
+<p>###value_set_by_demo_finisher###</p>
+<p>###value_set_by_demo_interceptor_save###</p>
+<!-- ###TEMPLATE_SUBMITTEDOK### end -->
