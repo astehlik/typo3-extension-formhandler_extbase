@@ -13,7 +13,7 @@
 /**
  * This finisher calls an extbase plugin
  */
-class Tx_FormhandlerExtbase_Finisher_Extbase extends Tx_Formhandler_AbstractFinisher {
+class Tx_FormhandlerExtbase_Formhandler_ExtbaseFinisher extends Tx_Formhandler_AbstractFinisher {
 
 	/**
 	 * Calls the exbase bootstrap

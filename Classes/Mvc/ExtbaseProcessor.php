@@ -71,10 +71,7 @@ class Tx_FormhandlerExtbase_Mvc_ExtbaseProcessor {
 
 		$this->formhandlerData->initialize($this->gp);
 
-		/**
-		 * @var Tx_Extbase_Core_Bootstrap $extbaseBootstrap
-		 */
-		$extbaseBootstrap = t3lib_div::makeInstance('Tx_Extbase_Core_Bootstrap');
+		$extbaseBootstrap = $this->createExtbaseBootstrap();
 		$this->content = $extbaseBootstrap->run('', $this->settings);
 
 		return $this->getValidatedContent();
@@ -92,6 +89,15 @@ class Tx_FormhandlerExtbase_Mvc_ExtbaseProcessor {
 	}
 
 	/**
+	 * Returns an instance of the extbase bootstrapper. Needed for unit testing.
+	 *
+	 * @return Tx_Extbase_Core_Bootstrap;
+	 */
+	protected function createExtbaseBootstrap() {
+		return t3lib_div::makeInstance('Tx_Extbase_Core_Bootstrap');
+	}
+
+	/**
 	 * Checks, if the returning content should be checked and if checking was enabled
 	 * it makes sure that the Exbase output matches the expectations.
 	 *
@@ -104,13 +110,13 @@ class Tx_FormhandlerExtbase_Mvc_ExtbaseProcessor {
 	 */
 	protected function getValidatedContent() {
 
-		if (!empty($content)) {
+		if (!empty($this->content)) {
 
 			if ($this->returningContentCheckEnabled && (!$this->returningContentExpected)) {
 				throw new RuntimeException("Your finisher was not configured to return content but your controller has not returned an empty value. Please make sure to disable the view in your controller or to set return to 1 in the finisher configuration");
 			}
 
-			return $content;
+			return $this->content;
 
 		} else {
 

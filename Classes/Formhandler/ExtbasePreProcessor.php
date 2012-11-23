@@ -11,9 +11,9 @@
  *                                                                        */
 
 /**
- * This interceptor calls an extbase plugin
+ * This pre-processor calls an extbase plugin
  */
-class Tx_FormhandlerExtbase_Interceptor_Extbase extends Tx_Formhandler_AbstractInterceptor {
+class Tx_FormhandlerExtbase_Formhandler_ExtbasePreProcessor extends Tx_Formhandler_PreProcessor_ValidateAuthCode {
 
 	/**
 	 * Calls the exbase bootstrap

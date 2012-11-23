@@ -13,15 +13,27 @@
 /**
  * Contains actions that will be called by the demo forms of formhandler_extbase
  */
-class Tx_FormhandlerExtbase_Controller_ValidationController extends Tx_FormhandlerExtbase_Mvc_ActionController {
+class Tx_FormhandlerExtbase_Controller_ValidationController extends Tx_FormhandlerExtbase_Controller_AbstractActionController {
 
+	/**
+	 * @var Tx_Formhandler_UtilityFuncs
+	 */
+	protected $formhandlerUtils;
+
+	/**
+	 * Disables the view
+	 */
 	protected function initializeAction() {
+		$this->formhandlerUtils = Tx_Formhandler_UtilityFuncs::getInstance();
 		$this->disableViewResolution();
 	}
 
+	/**
+	 * Executes the configured extbase validator
+	 */
 	public function validateAction() {
 
-		$value = $this->formhandlerData->getGpValue($this->settings['field']);
+		$value = $this->formhandlerUtils->getSingle($this->settings, 'value');
 
 		$validatorOptions = array();
 		if (is_array($this->settings['validatorOptions.'])) {

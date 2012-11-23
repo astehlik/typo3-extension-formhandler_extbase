@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="error_testinput_required">This value is required</label>
+			<label index="error_testinput_extbase_1221563685">The value needs to be between 10 and 20 (validated by Extbase)</label>
+			<label index="error_testinput_extbase_1353680088">The value needs to be 15 (validated by Extbase Demo Validator)</label>
+		</languageKey>
+	</data>
+</T3locallang>

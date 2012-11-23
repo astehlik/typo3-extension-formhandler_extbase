@@ -10,13 +10,8 @@ plugin.Tx_Formhandler.settings.predef {
 		fillValueMarkersBeforeLangMarkers = 1
 
 		templateFile = EXT:formhandler_extbase/Resources/Private/Forms/Demo/SimpleForm.html
-		langFile.1 = EXT:formhandler_extbase/Resources/Private/Language/SimpleForm.xml
+		langFile.1 = EXT:formhandler_extbase/Resources/Private/Forms/Demo/SimpleForm.xml
 
-		additionalIncludePaths {
-			1 = EXT:formhandler_extbase/Classes/Finisher
-			2 = EXT:formhandler_extbase/Classes/PreProcessor
-			3 = EXT:formhandler_extbase/Classes/Controller
-		}
 
 		# ERRORS LAYOUT
 		singleErrorTemplate {
@@ -33,10 +28,8 @@ plugin.Tx_Formhandler.settings.predef {
 			default = error
 			global (
 				<div class="error">
-					<strong>Fehler</strong><br />
-					Es wurden nicht alle erforderlichen Felder ausgefüllt oder
-					eine Ihrer Eingaben war fehlerhaft.<br />
-					Bitte prüfen Sie Ihre Angaben.
+					<strong>Error</strong><br />
+					Please make sure you filled out all required fields with the correct values.<br />
 				</div><br />
 			)
 		}
@@ -47,13 +40,22 @@ plugin.Tx_Formhandler.settings.predef {
 				testinput.errorCheck.1 = required
 			}
 
-			2.class = Tx_FormhandlerExtbase_Validator_Extbase
+			2.class = Tx_FormhandlerExtbase_Formhandler_ExtbaseValidator
 			2.config {
 				field = testinput
 				validator = NumberRange
 				validatorOptions {
 					minimum = 10
 					maximum = 20
+				}
+			}
+
+			3.class = Tx_FormhandlerExtbase_Formhandler_ExtbaseValidator
+			3.config {
+				field = testinput
+				validator = Tx_FormhandlerExtbase_Demo_RequiredNumberValidator
+				validatorOptions {
+					requiredNumber = 15
 				}
 			}
 		}
@@ -69,7 +71,7 @@ plugin.Tx_Formhandler.settings.predef {
 		preProcessors {
 
 			1 {
-				class = Tx_FormhandlerExtbase_PreProcessor_Extbase
+				class = Tx_FormhandlerExtbase_Formhandler_ExtbasePreProcessor
 				config {
 					extensionName = FormhandlerExtbase
 					pluginName = DemoPreProcessor
@@ -81,7 +83,7 @@ plugin.Tx_Formhandler.settings.predef {
 		initInterceptors {
 
 			1 {
-				class = Tx_FormhandlerExtbase_Interceptor_Extbase
+				class = Tx_FormhandlerExtbase_Formhandler_ExtbaseInterceptor
 				config {
 					extensionName = FormhandlerExtbase
 					pluginName = DemoInterceptorInit
@@ -93,7 +95,7 @@ plugin.Tx_Formhandler.settings.predef {
 		saveInterceptors {
 
 			1 {
-				class = Tx_FormhandlerExtbase_Interceptor_Extbase
+				class = Tx_FormhandlerExtbase_Formhandler_ExtbaseInterceptor
 				config {
 					extensionName = FormhandlerExtbase
 					pluginName = DemoInterceptorSave
@@ -105,7 +107,7 @@ plugin.Tx_Formhandler.settings.predef {
 		finishers {
 
 			1 {
-				class = Tx_FormhandlerExtbase_Finisher_Extbase
+				class = Tx_FormhandlerExtbase_Formhandler_ExtbaseFinisher
 				config {
 					extensionName = FormhandlerExtbase
 					pluginName = DemoFinisher
@@ -127,7 +129,7 @@ plugin.Tx_Formhandler.settings.predef {
 		finishers {
 
 			1 {
-				class = Tx_FormhandlerExtbase_Finisher_Extbase
+				class = Tx_FormhandlerExtbase_Formhandler_ExtbaseFinisher
 				config {
 					extensionName = FormhandlerExtbase
 					pluginName = DemoFinisherReturn
@@ -145,7 +147,7 @@ plugin.Tx_Formhandler.settings.predef {
 		preProcessors {
 
 			1 {
-				class = Tx_FormhandlerExtbase_PreProcessor_Extbase
+				class = Tx_FormhandlerExtbase_Formhandler_ExtbasePreProcessor
 				config {
 					extensionName = FormhandlerExtbase
 					pluginName = DemoPreProcessorReturn
@@ -162,7 +164,7 @@ plugin.Tx_Formhandler.settings.predef {
 		initInterceptors {
 
 			1 {
-				class = Tx_FormhandlerExtbase_Interceptor_Extbase
+				class = Tx_FormhandlerExtbase_Formhandler_ExtbaseInterceptor
 				config {
 					extensionName = FormhandlerExtbase
 					pluginName = DemoInterceptorInitReturn
@@ -179,7 +181,7 @@ plugin.Tx_Formhandler.settings.predef {
 		saveInterceptors {
 
 			1 {
-				class = Tx_FormhandlerExtbase_Interceptor_Extbase
+				class = Tx_FormhandlerExtbase_Formhandler_ExtbaseInterceptor
 				config {
 					extensionName = FormhandlerExtbase
 					pluginName = DemoInterceptorSaveReturn

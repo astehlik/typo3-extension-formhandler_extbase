@@ -17,7 +17,7 @@
  * It provides access to the formhandler data object, that can be used to manipulate
  * the gp array of formhandler.
  */
-abstract class Tx_FormhandlerExtbase_Mvc_ActionController extends Tx_Extbase_MVC_Controller_ActionController {
+abstract class Tx_FormhandlerExtbase_Controller_AbstractActionController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
 	 * Set this to TRUE if you do not want a view to be attached to this
