@@ -30,5 +30,3 @@ class Tx_FormhandlerExtbase_Formhandler_ExtbaseFinisher extends Tx_Formhandler_A
 		return $extbaseProcessor->process();
 	}
 }
-
-?>

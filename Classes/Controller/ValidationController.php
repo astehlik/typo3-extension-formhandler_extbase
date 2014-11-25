@@ -40,12 +40,11 @@ class Tx_FormhandlerExtbase_Controller_ValidationController extends Tx_Formhandl
 			$validatorOptions = $this->settings['validatorOptions.'];
 		}
 
-		/** @var \TYPO3\CMS\Extbase\Validation\Validator\ValidatorInterface $validator */
+		/** @var Tx_Extbase_Validation_Validator_IntegerValidator $validator */
 		$validator = $this->validatorResolver->createValidator($this->settings['validator'], $validatorOptions);
+		/** @var Tx_Extbase_Error_Result $result */
 		$result = $validator->validate($value);
 
 		$this->formhandlerData->setErrorResult($result);
 	}
 }
-
-?>

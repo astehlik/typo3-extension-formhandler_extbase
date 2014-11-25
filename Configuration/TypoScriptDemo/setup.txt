@@ -3,7 +3,6 @@ plugin.Tx_Formhandler.settings.predef {
 
 	tx_formhandlerextbase_demo_finisher {
 
-		# GENERAL CONFIGURATION
 		name = Formhander Extbase - Demo - Finisher
 		addErrorAnchors = 0
 		formValuesPrefix = tx_formhandlerextbase_simpleform
@@ -12,8 +11,6 @@ plugin.Tx_Formhandler.settings.predef {
 		templateFile = EXT:formhandler_extbase/Resources/Private/Forms/Demo/SimpleForm.html
 		langFile.1 = EXT:formhandler_extbase/Resources/Private/Forms/Demo/SimpleForm.xml
 
-
-		# ERRORS LAYOUT
 		singleErrorTemplate {
 			totalWrap = <strong class="message">|</strong>
 			singleWrap = |<br />

@@ -99,5 +99,3 @@ class Tx_FormhandlerExtbase_Controller_DemoController extends Tx_FormhandlerExtb
 		$this->view->assign('testvalue', 'This value was set by the demo pre-processor.');
 	}
 }
-
-?>

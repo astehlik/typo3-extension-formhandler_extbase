@@ -27,5 +27,3 @@ class Tx_FormhandlerExtbase_Formhandler_ExtbasePreProcessor extends Tx_Formhandl
 		return $extbaseProcessor->process();
 	}
 }
-
-?>

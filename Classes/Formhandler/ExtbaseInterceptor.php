@@ -27,5 +27,3 @@ class Tx_FormhandlerExtbase_Formhandler_ExtbaseInterceptor extends Tx_Formhandle
 		return $extbaseProcessor->process();
 	}
 }
-
-?>

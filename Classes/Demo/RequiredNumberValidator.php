@@ -6,6 +6,13 @@
 class Tx_FormhandlerExtbase_Demo_RequiredNumberValidator extends Tx_Extbase_Validation_Validator_AbstractValidator {
 
 	/**
+	 * @var array
+	 */
+	protected $supportedOptions = array(
+		'requiredNumber' => array(0, 'The number the user must enter.', 'integer', TRUE),
+	);
+
+	/**
 	 * Check if $value is valid. If it is not valid, needs to add an error
 	 * to Result.
 	 *
