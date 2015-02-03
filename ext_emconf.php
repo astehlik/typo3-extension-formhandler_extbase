@@ -22,7 +22,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'author_company' => '',
 	'constraints' => array(
 		'depends' => array(
-			'typo3' => '4.5.0-6.2.99',
+			'typo3' => '6.2.1-6.2.99',
 			'extbase' => '0.0.0-0.0.0',
 			'formhandler' => '0.0.0-0.0.0',
 		),
